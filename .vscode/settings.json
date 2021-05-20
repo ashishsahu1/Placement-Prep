@@ -2,6 +2,7 @@
     "files.associations": {
         "*.csv": "excel",
         "*.tex": "bibtex-style",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }
