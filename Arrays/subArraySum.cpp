@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     // code
-    int arr[3] = {1,2,2},sum=0,final = 0;
+    int arr[3] = {1,2,3},sum=0,final = 0;
     int n = 3,i,j;
     for(i=0;i<n;i++){
         sum = 0;
