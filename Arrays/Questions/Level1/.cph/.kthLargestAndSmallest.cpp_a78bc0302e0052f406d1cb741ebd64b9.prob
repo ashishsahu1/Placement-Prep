@@ -1,0 +1,1 @@
+{"name":"Local: kthLargestAndSmallest","url":"e:\\Projects\\Placement-Prep\\Arrays\\Questions\\Level1\\kthLargestAndSmallest.cpp","tests":[{"id":1621922014506,"input":"5\n4 2 3 5 1\n2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Projects\\Placement-Prep\\Arrays\\Questions\\Level1\\kthLargestAndSmallest.cpp","group":"local","local":true}
