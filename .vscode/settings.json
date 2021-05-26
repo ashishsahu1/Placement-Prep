@@ -3,6 +3,7 @@
         "*.csv": "excel",
         "*.tex": "bibtex-style",
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "valarray": "cpp"
     }
 }
