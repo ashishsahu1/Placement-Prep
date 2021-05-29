@@ -1,20 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool checkPal(char chr[]){
-    int i=0;
-    int c =0;
-    while(chr[c]!='\0'){
-        c++;
-    }
-    
-    while(chr[i]!='\0'){
-        if(chr[i]!=chr[c]){
+bool check2(char chr[], int n){
+    int i=0,j=n-1;
+    while(j>=i){
+        if(chr[i]==chr[j]){
+            i++;
+            j--;
+        }
+        else{
             return false;
         }
-        c--;
-        i++;
-        cout<<i<<" "<<c<<endl;
     }
     return true;
 }
@@ -24,9 +20,13 @@ int main()
     // code
     char chr[100];
     cin>>chr;
+    int c =0;
+    while(chr[c]!='\0'){
+        c++;
+    }
 
     cout<<"Original : "<<chr<<endl;
-    if(checkPal(chr)){
+    if(check2(chr,c)){
         cout<<"Yes Palindrome"<<endl;
     }else{
         cout<<"Not palindrome"<<endl;
