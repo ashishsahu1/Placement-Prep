@@ -6,10 +6,10 @@ int main()
 {
     /* code */
     int n,b;
-    cout<<"Enter the number : ";
+    // cout<<"Enter the number : ";
     cin>>n;
 
-    cout<<"Enter the base : ";
+    // cout<<"Enter the base : ";
     cin>>b;
     int n2 = n;
     int c,out;
