@@ -2,14 +2,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void print(vector<int> lst, int first,int last){
+vector<int> addVec(vector<int> lst, int first,int last){
+    vector<int> sbst;
     for(int i=first;i<=last;i++){
-        cout<<lst[i]<<" ";
+        // cout<<lst[i];
+        sbst.push_back(lst[i]);
     }
-    cout<<endl;
+    // cout<<sbst.size()<<endl;
+    return sbst;
 }
 
-void subset(vector<int> lst,int first, int last){
+void subset(vector<int> lst,int first, int last,vector<vector<int>>& finalAns){
     if(last == lst.size()){
         first++;
         last=first;
@@ -17,9 +20,11 @@ void subset(vector<int> lst,int first, int last){
     if(first == lst.size()){
         return;
     }
-    print(lst,first,last);
-    // cout<<first<<" "<<last<<endl;
-    subset(lst,first,last+1);
+
+    finalAns.push_back(addVec(lst,first,last));
+    // cout<<finalAns.size()<<endl;
+    subset(lst,first,last+1,finalAns);
+
 }
 
 int main()
@@ -28,13 +33,22 @@ int main()
     int n;
     cin>>n;
     vector<int> lst(n,0);
+    vector<vector<int>> finalAns;
     for(int i=0;i<n;i++)
         cin>>lst[i];
     
-    for(int i=0;i<n;i++)
-        cout<<lst[i]<<" ";
-    cout<<endl;
+    // for(int i=0;i<n;i++)
+    //     cout<<lst[i]<<" ";
+    // cout<<endl;
 
-    subset(lst,0,0);
+    subset(lst,0,0,finalAns);
+    // cout<<finalAns.size()<<endl;
+
+    for(int i=0;i<finalAns.size();i++){
+        for(int j=0;j<finalAns[i].size();j++){
+            cout<<finalAns[i][j]<<"  ";
+        }
+        cout<<endl;
+    }
     return 0;
 }
