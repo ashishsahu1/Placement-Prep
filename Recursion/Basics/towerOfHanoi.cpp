@@ -11,7 +11,7 @@ int c=0;
 void toh(int n,string s,string d,string h){
     if(n>0){
         toh(n-1,s,h,d);
-        // cout<<"Move disc from "<<s<<" to "<<d<<endl;
+        cout<<"Move disc from "<<s<<" to "<<d<<endl;
         c++;
         toh(n-1,h,d,s);
     }
