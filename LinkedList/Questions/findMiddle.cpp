@@ -14,9 +14,11 @@ class node
 
 class LL
 {
-    public:
+    private:
     int c=0;
     node *head = NULL;
+    
+    public:
     void insertNode(int data){
         c++;
         node *newnode = new node(data);
