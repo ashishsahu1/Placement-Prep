@@ -46,6 +46,20 @@ class TreeRec{
         postorderRec(root->right);
         cout<<root->data<<" ";
     }
+
+
+    void levelOrder(queue<Node*> q){
+        if(q.empty()){
+            return;
+        }
+        q.push(q.front()->left);
+        q.push(q.front()->right);
+
+        cout<<q.front()->data<<" ";
+        q.pop();
+
+        levelOrder(q);
+    }
 };
 
 class TreeItt{ 
@@ -94,7 +108,7 @@ int main()
             40  50  60  70  
     */
     
-    //creation or tree
+    //creation of tree
     Node *root = NULL;
     Node *n1 = new Node(10);
     Node *n2 = new Node(20);
@@ -129,6 +143,12 @@ int main()
     t1.preorderRec(root);
     cout<<endl;
 
+    /*  Level order  */
+    queue<Node*> q;
+    q.push(root);
+    cout<<"Level Order : ";
+    t1.levelOrder(q);
+    cout<<endl;
 
     /*  USING ITERATION AND STACK  */
     cout<<" ***  USING ITERATION AND STACK  *** "<<endl;
