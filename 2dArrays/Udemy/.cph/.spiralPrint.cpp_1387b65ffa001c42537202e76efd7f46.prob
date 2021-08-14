@@ -1,0 +1,1 @@
+{"name":"Local: spiralPrint","url":"e:\\Projects\\Placement-Prep\\2dArrays\\Udemy\\spiralPrint.cpp","tests":[{"id":1628949061523,"input":"4 4\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Projects\\Placement-Prep\\2dArrays\\Udemy\\spiralPrint.cpp","group":"local","local":true}
