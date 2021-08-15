@@ -14,6 +14,7 @@ void searchMethod1(vector<vector<int>> v, int key)
             }
         }
     }
+    cout<<"not found"<<endl;
 }
 
 //o(n*log(n))----- binary searching each row for the required key
@@ -48,6 +49,7 @@ void searchMethod2(vector<vector<int>> v, int key)
 }
 
 //smarter approach only work if the matrix is sorted both rows and column wise
+//stair case search
 void searchMethod3(vector<vector<int>> v, int key)
 {
     int i = 0;
