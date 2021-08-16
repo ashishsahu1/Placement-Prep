@@ -1,0 +1,1 @@
+{"name":"Local: probDiff","url":"e:\\Projects\\Placement-Prep\\Practice\\Week2\\ccAugustChallenge\\probDiff.cpp","tests":[{"id":1629123581750,"input":"3\n1 4 3 2\n4 5 5 5\n2 2 2 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Projects\\Placement-Prep\\Practice\\Week2\\ccAugustChallenge\\probDiff.cpp","group":"local","local":true}
