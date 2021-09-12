@@ -20,6 +20,7 @@ void printSpiral(vector<vector<int>> arr){
     endCol=m-1;
 
     while(strtCol <=endCol && strtRow<=endRow){
+
         for(int col=strtCol;col<=endCol;col++){
             cout<<arr[strtRow][col]<<" ";
         }
@@ -41,17 +42,11 @@ void printSpiral(vector<vector<int>> arr){
             }
             cout<<arr[row][strtCol]<<" ";
         }
-        
-
         strtRow++;
         strtCol++;
         endRow--;
         endCol--;
     }
-
-
-    
-    
 }
 
 int main()

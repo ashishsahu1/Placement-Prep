@@ -26,7 +26,7 @@ int isSafe(int n,vector<vector<int>> board,int row,int col){
             return 0;
         }
     }
-
+    
     /* secondary diagonal ('/ diagonal')
         - - - -
         - - - *
@@ -77,8 +77,6 @@ void NQueens(int n,vector<vector<int>> &board,int row){
             board[row][col] = 0;
         }
     }
-
-
 }
 
 int main(){

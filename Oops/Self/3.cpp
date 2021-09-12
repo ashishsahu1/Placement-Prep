@@ -19,8 +19,8 @@ public:
     }
 
     //parameterized costructor
-    School(string nm,int noT,int noS,int noC){
-        name = nm;
+    School(string name,int noT,int noS,int noC){
+        this->name = name;
         numberOfTeachers = noT;
         numberOfStudents = noS;
         numberOfClassroom = noC;
