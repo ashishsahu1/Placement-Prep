@@ -38,10 +38,8 @@ public:
     {
         Node *newnode = new Node(val);
         if (head != NULL)
-        {
             newnode->next = head;
-            head = newnode;
-        }
+
         head = newnode;
         noOfNodes += 1;
     }

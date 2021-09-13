@@ -28,4 +28,7 @@ int main()
     b1.about();
     Book b2("HellaHow",200,false);
     b2.about();
+    Book *b3 = new Book("hell",230,true);
+    cout<<b3<<endl;
+    b3->about();
 }
