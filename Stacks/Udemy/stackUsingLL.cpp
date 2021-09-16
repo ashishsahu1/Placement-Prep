@@ -12,64 +12,39 @@ class Node{
     }
 };
 
-class List{
-    private:
-    Node *head;
-    int size;
-
-    public:
-    List(){
-        this->size = 0;
-    }
-
-    void insert(int data){
-        Node *newnode = new Node(data);
-        if(head!=NULL){
-            newnode->next = head;
-        }
-        head = newnode;
-    }
-
-    void del(){
-        Node *temp = head;
-        if(head==NULL)
-            return;
-        head = head->next;
-        delete temp;
-    }
-
-    void print(){
-        Node *temp = head;
-        while(temp!=NULL){
-            cout<<temp->data<<" ";
-            temp=temp->next;
-        }
-        cout<<endl;
-    }
-
-};
-
 class Stack{
     private:
-    Node* top;
-    int size;
-    List st;
-
+    Node *top;
     public:
     Stack(){
         this->top = NULL;
     }
 
     void push(int data){
-        st.insert(data);
+        Node *newnode = new Node(data);
+        if(top!=NULL){
+            newnode->next = top;
+        }
+        top = newnode;
     }
 
     void pop(){
-        st.del();
+        if(top!=NULL){
+            Node *temp = top;
+            top = top->next;
+            delete temp;
+        }else{
+            cout<<"stack underflow"<<endl;
+        }
     }
 
     void print(){
-        st.print();
+        Node * temp = top;
+        while(temp!=NULL){
+            cout<<temp->data<<" ";
+            temp = temp->next;
+        }
+        cout<<endl;
     }
 };
 
@@ -78,7 +53,7 @@ int main(){
     s1.push(12);
     s1.push(23);
     s1.push(34);
-    // s1.pop();
-    // s1.push(56);
+    s1.pop();
+    s1.push(56);
     s1.print();
 }
