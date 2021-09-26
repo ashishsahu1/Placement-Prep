@@ -18,10 +18,7 @@ public:
     }
 };
 
-/*
-INORDER TRAVERSAL USING RECURSION
-left--->root--->right
-*/
+/* INORDER TRAVERSAL USING RECURSION left--->root--->right */
 void inOrderRec(Node *root)
 {
     if (root == NULL)
@@ -33,30 +30,31 @@ void inOrderRec(Node *root)
     inOrderRec(root->right);
 }
 
-/*
-INORDER TRAVERSAL USING ITERATION
-*/
+/* INORDER TRAVERSAL USING ITERATION */
 void inOrderItr(Node *root)
 {
     Node *curr = root;
-    stack<Node*> tempS;
-    while(curr!=NULL || tempS.empty()==false){
-        while (curr != NULL)
+    stack<Node *> s;
+    while (true)
+    {
+        if (curr != NULL)
         {
-            tempS.push(curr);
+            s.push(curr);
             curr = curr->left;
         }
-        curr = tempS.top();
-        tempS.pop();
-        cout<<curr->data<<" ";
-        curr = curr->right;
+        else
+        {
+            if (s.empty() == true)
+                break;
+            curr = s.top();
+            s.pop();
+            cout << curr->data << " ";
+            curr = curr->right;
+        }
     }
 }
 
-/*
-PREORDER TRAVERSAL USING RECURSION
-root--->left--->right
-*/
+/* PREORDER TRAVERSAL USING RECURSION root--->left--->right */
 void preOrderRec(Node *root)
 {
     if (root == NULL)
@@ -68,32 +66,28 @@ void preOrderRec(Node *root)
     preOrderRec(root->right);
 }
 
-/*
-PREORDER TRAVERSAL USING ITERATION
-*/
-void preOrderItr(Node *root){
-    if(root ==NULL)
+/* PREORDER TRAVERSAL USING ITERATION */
+void preOrderItr(Node *root)
+{
+    if (root == NULL)
         return;
 
-    Node *curr = root;
-    stack<Node *> tempS;
-    tempS.push(curr);
+    stack<Node *> s;
+    s.push(root);
 
-    while(tempS.empty() == false){
-
-        //pop the top item and print it
-        cout<<tempS.top()->data<<" ";
-        tempS.pop();
-
-        if(curr->left!=NULL)
-            tempS.push(curr->right)
+    while (s.empty() == false)
+    {
+        Node *currTop = s.top();
+        cout << currTop->data << " ";
+        s.pop();
+        if (currTop->right != NULL)
+            s.push(currTop->right);
+        if (currTop->left != NULL)
+            s.push(currTop->left);
     }
 }
 
-/*
-POSTORDER TRAVERSAL USING RECURSION
-left--->right--->root
-*/
+/* POSTORDER TRAVERSAL USING RECURSION left--->right--->root */
 void postOrderRec(Node *root)
 {
     if (root == NULL)
@@ -105,31 +99,51 @@ void postOrderRec(Node *root)
     cout << root->data << " ";
 }
 
-/*
-INORDER TRAVERSAL USING ITERATION
-*/
-
-
-/*
-LEVEL ORDER TRAVERSAL USING ITERATION
-*/
-void levelOrder(Node *root){
-    if(root == NULL){
+/* POSTORDER TRAVERSAL USING ITERATION */
+void postOrderItr(Node *root)
+{
+    if (root == NULL)
         return;
-    }else{
+
+    stack<Node *> s1, s2;
+    s1.push(root);
+    while (s1.empty() != true)
+    {
+        Node *curr = s1.top();
+        s1.pop();
+        s2.push(curr);
+        if (curr->left != NULL)
+            s1.push(curr->left);
+        if (curr->right != NULL)
+            s1.push(curr->right);
+    }
+    while (s2.empty() != true)
+    {
+        cout << s2.top()->data << " ";
+        s2.pop();
+    }
+}
+
+/* LEVEL ORDER TRAVERSAL USING ITERATION */
+void levelOrder(Node *root)
+{
+    if (root == NULL)
+        return;
+    else
+    {
         queue<Node *> q;
         Node *curr = root;
         q.push(curr);
         while (!q.empty())
         {
             Node *ptr = q.front();
-            cout<<ptr->data<<" ";
+            cout << ptr->data << " ";
             q.pop();
 
-            if(ptr->left!=NULL)
+            if (ptr->left != NULL)
                 q.push(ptr->left);
 
-            if(ptr->right!=NULL)
+            if (ptr->right != NULL)
                 q.push(ptr->right);
         }
     }
@@ -152,16 +166,27 @@ int main()
     root->right->left = new Node(60);
     root->right->right = new Node(70);
 
+    cout << "Inorder" << endl;
     inOrderRec(root);
     cout << endl;
     inOrderItr(root);
     cout << endl;
+
+    cout << "Preorder" << endl;
     preOrderRec(root);
     cout << endl;
+    preOrderItr(root);
+    cout << endl;
+
+    cout << "Postorder" << endl;
     postOrderRec(root);
     cout << endl;
+    postOrderItr(root);
+    cout << endl;
+
+    cout << "Levelorder" << endl;
     levelOrder(root);
-    cout<<endl;
+    cout << endl;
 
     return 0;
 }
