@@ -14,7 +14,6 @@ int main()
 {
     int n,p;
     cin>>n;
-    cin>>p;
     // n=5;
     // p=1;
     int val;
