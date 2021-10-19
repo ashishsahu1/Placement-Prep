@@ -11,7 +11,6 @@ j = 1
 ******OUTPUT*****
 170
 190
-
 */
 
 void replace(int &n, int m, int i, int j)
