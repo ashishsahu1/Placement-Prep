@@ -16,21 +16,53 @@ public:
     }
 };
 
-void leftBound(Node *root)
+void travBound(Node *root, vector<int> &ans, bool opp)
 {
-    if(root->left->left == NULL || root->left->right == NULL){
+    if (root == NULL)
+    {
         return;
     }
-    leftBound(root->left);
-    leftBound(root->right);
+    queue<Node *> q;
+    q.push(root);
+    while (q.empty() == false)
+    {
+        Node *curr = q.front();
+        ans.push_back(curr->data);
+        q.pop();
+        if (opp)
+        {
+            if (curr->left)
+                q.push(curr->left);
+            if (curr->right)
+                q.push(curr->right);
+        }
+        else
+        {
+            if (curr->right)
+                q.push(curr->right);
+            if (curr->left)
+                q.push(curr->left);
+        }
+    }
 }
 void antiClockBoundary(Node *root)
 {
-    // Left boundary without leaf
+    vector<int> ans;
+    // root
+    ans.push_back(root->data);
 
-    // leaf nodes
+    // left subtree level order
+    travBound(root->left, ans, true);
 
-    // right boundary in reverse without leaf
+    // right subtree level order
+    vector<int> temp;
+    travBound(root->right, temp, false);
+    for (int i = temp.size() - 1; i >= 0; i--)
+        ans.push_back(temp[i]);
+
+    for (int i = 0; i < ans.size(); i++)
+        cout << ans[i] << " ";
+    cout << endl;
 }
 
 int main()
@@ -46,6 +78,8 @@ int main()
          4    9
         / \  / \
        5  6 10 11
+
+       1 2 3 4 5 6 10 11 9 8 7 1
 
     ANTI-CLOCKWISE
     - Left boundaries excluding leafs
@@ -70,6 +104,8 @@ int main()
     root->right->right->left = new Node(9);
     root->right->right->left->left = new Node(10);
     root->right->right->left->right = new Node(11);
+
+    antiClockBoundary(root);
 
     return 0;
 }
