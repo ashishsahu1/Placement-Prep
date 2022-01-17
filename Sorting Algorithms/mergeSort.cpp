@@ -39,6 +39,13 @@ void merge(int arr[],int first,int mid,int last){
     }
 }
 
+void print(vector<int> arr){
+    for(int i=0;i<arr.size();i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
 void mergeSort(int arr[],int first,int last){
     int mid;
     if(first<last){
